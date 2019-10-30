@@ -13,6 +13,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "quasar-cli": "^0.17.26",
     "webpack-dev-server": "^3.9.0"
   }
 }
