@@ -1,0 +1,53 @@
+<%= form_with(model: track_event, local: true) do |form| %>
+  <% if track_event.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= pluralize(track_event.errors.count, "error") %> prohibited this TimeLog from being saved:</h2>
+
+      <ul>
+        <% track_event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if current_user || !track_event.new_record? %>
+    <div class="form-group">
+      <%= form.label :time_in, class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+        <%= form.datetime_select :time_in, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :time_out, class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+        <%= form.datetime_select :time_out, class: "form-control", include_blank: true %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :description, class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+        <%= form.text_field :description, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <%= form.submit 'Save TimeLog!', class: "btn btn-lg btn-primary" %>
+    </div>
+  <% else %>
+    <div class="form-group">
+      <%= form.label :your_name, class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+        <%= form.text_field :your_name, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <%= form.submit 'Punch In!', value: 'Punch In!', class: "btn btn-lg btn-primary" %>
+      <%= form.submit 'Punch Out!', value: 'Punch Out!', class: "btn btn-lg btn-primary" %>
+    </div>
+  <% end %>
+
+<% end %>

@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="home-inner">
+    <div class="wrapper">
+    	<p id="notice" class="alert alert-success"><%= notice %></p>
+
+    	<h1>TimeLog</h1>
+
+		<%= render 'form', track_event: @track_event %>
+
+		<%= link_to 'Back', track_events_path %>
+	</div>
+  </div>
+</div>
