@@ -6,7 +6,7 @@ class TrackEvent < ApplicationRecord
   }
   scope :exclude_self, -> id { where.not(id: id) }
 
-  validates_presence_of :time_in, message: 'Log should be present first!', on: :create
+  validates_presence_of :time_in, message: 'Log should be present first!', on: :create, if: -> { self.user }
   validate :last_event_completed, on: :create
   validate :valid_times
   validate :cannot_overlap_another_event, if: -> { self.user }
