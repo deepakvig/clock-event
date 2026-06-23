@@ -20,7 +20,7 @@
 Run `rspec`.
 
 
-CHALLENGE QUESTIONS
+CHALLENGE QUESTIONS:
 ----
 ##### How did you approach this challenge?
 
